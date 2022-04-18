@@ -83,8 +83,5 @@ function displayButtons(next){
 
 $(document).ready(function(){
     next = displayLesson()
-
     displayButtons(next)
-    
-    
 })

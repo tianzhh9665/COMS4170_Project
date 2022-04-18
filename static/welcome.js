@@ -1,6 +1,7 @@
 function displayWelcome(){
     //empty old data
-    $("#welcomeCont").empty()
+
+    console.log('Hey')
 
     var title_text = document.createElement('p')
     title_text.innerHTML = "Introduction to Resistance Training"
@@ -13,20 +14,20 @@ function displayWelcome(){
     var image_text = document.createElement('img')
     image_text.src = "https://cdn.prod.openfit.com/uploads/2019/11/11131048/how-many-push-ups-in-a-day.jpg"
     image_text.alt = "Man and woman doing push-ups"
+    image_text.className = ("welcome-image")
     document.getElementById("welcomeImage").appendChild(image_text)
 
     var next_text = document.createElement('p')
     next_text.innerHTML = "Click the button to continue to the lesson!"
     document.getElementById("welcomeNext").appendChild(next_text)
-    let nextButton='<button type="button" id="nextBtn" class="btn btn-primary">Next: Lesson</button>'
+    let nextButton='<button type="button" id="nextBtn" class="btn btn-primary center">Next: Lesson</button>'
     $("#welcomeNext").append(nextButton)
 }
 
 $(document).ready(function(){
     displayWelcome()
     //also handler for button click //
-    $("#welcomeCont").on("click", "#nextBtn", function(){
+    $("#welcomeNext").on("click", "#nextBtn", function(){
         window.location.href = "/lesson/1"
     })
-
 })
