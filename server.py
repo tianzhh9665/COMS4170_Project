@@ -28,10 +28,6 @@ lesson_data = {
     }
 }
 
-#LESSON USER DATA
-
-# ---------------------------created by Tianzhi Huang Start----------------------------------------------
-
 # dict recording user's answer of each question
 user_answers = {}
 
@@ -72,16 +68,10 @@ correct_answer_count = 0
 # recording the pending quiz id
 current_quiz_id = 1
 
-# ---------------------------created by Tianzhi Huang End----------------------------------------------
-
-
 # ROUTES
 @app.route('/', methods=['GET','POST'])
 def welcome(): 
     return render_template('welcome.html') #insert var here if needed
-
-
-
     
 @app.route('/lesson/<id>')
 def lesson(id=None):
@@ -92,9 +82,6 @@ def lesson(id=None):
 
     return render_template('lesson.html', lesson = lesson)
 
-
-
-# ---------------------------created by Tianzhi Huang Start----------------------------------------------
 
 # quiz home page route
 @app.route('/quizhome')
@@ -182,9 +169,6 @@ def score():
     total = len(quiz_data)
     
     return render_template('score.html',score=score, total=total) #insert var here if needed
-
-# ---------------------------created by Tianzhi Huang End----------------------------------------------
-
 
 if __name__ == '__main__':
    app.run(debug = True)
