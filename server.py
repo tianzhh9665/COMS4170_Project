@@ -5,6 +5,28 @@ app = Flask(__name__)
 
 
 #LESSON TEMPLATE DATA
+lesson_data = {
+    "1": {
+        "id": 1,
+        "title": "Setup",
+        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other—not turned inward or outward. Hips should be in line with the shoulders, and the lower back should have a neutral curve—not completely flat, but not overly curved either. To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
+    },
+    "2": {
+        "id": 2,
+        "title": "Beginning",
+        "content": "Engage the core (belly button to spine and tighten abdominals). Squeeze the glutes. Keeping pressure through the hands, bend the elbows to lower the chest, hips, and head toward the ground- together as one."
+    },
+    "3": {
+        "id": 3,
+        "title": "Middle",
+        "content": "Get as close to the floor or wall as possible (nose, chest and belly button should be at the same level/height). Continue to squeeze the glutes and engage the core. Keep constant pressure through the hands into the floor."
+    },
+    "4": {
+        "id": 4,
+        "title": "End",
+        "content": "Engage the pectorals and imagine you're pushing the ground away from you. Keep your energy focused in your core and NOT in your toes. Continue to push up, ending, and at available range of motion in the arms while engaging your triceps."
+    }
+}
 
 #LESSON USER DATA
 
@@ -59,10 +81,16 @@ def welcome():
     return render_template('welcome.html') #insert var here if needed
 
 
-@app.route('/lesson')
-def lesson():
-    return render_template('lesson.html')
 
+    
+@app.route('/lesson/<id>')
+def lesson(id=None):
+    global lesson_data
+
+    lesson = lesson_data[str(id)]
+
+
+    return render_template('lesson.html', lesson = lesson)
 
 
 

@@ -7,9 +7,29 @@
 </style>
 <script type="text/javascript" src="{{ url_for('static', filename = 'lesson.js') }}"></script>
 
-<div class="container-fluid">    
-    <div class='row' id='lessonCont'>
+<script>
+    let lesson = {{lesson|tojson}};
+</script>
 
+<div class="container-fluid">    
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="lessonTitle">
+
+        </div>
+    </div>
+
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="lessonContent">
+
+        </div>
+    </div>
+    <div class='row'>
+        <div class="col-6" align="left" id="prev_lesson">
+
+        </div>
+        <div class="col-6" align="right" id="next_button">
+
+        </div>
     </div>
 </div>
 
