@@ -14,7 +14,7 @@ Updates on 04/18/2022 done by Tianzhi Huang:
 3. Completed backend data structure creations related to Quiz
 4. Completed Quiz-related pages redirections, as well as related data transfer(quiz score, pending quiz, quiz id...)
 5. Completed Quiz-related navigation functionalities.
-6. TODO: having media lile picture and video included (will be done in future HWs)
+6. TODO: having media like pictures and videos included (will be done in future HWs)
 
 Modified files:
 
