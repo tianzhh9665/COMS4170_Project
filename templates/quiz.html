@@ -1,15 +1,53 @@
 {% extends "layout.html" %}
 
 {% block content %}
-
-<style>
-
-</style>
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
 
-<div class="container-fluid">    
-    <div class='row' id='quizCont'>
+<script>
+    let quiz = {{quiz|tojson}};
+    let total = {{total|tojson}};
+</script>
 
+<div class="container-fluid">
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="quiz_title">
+
+        </div>
+    </div>
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="quiz_content">
+
+        </div>
+    </div>
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="quiz_video">
+            <br><p>a video will be here</p>
+        </div>
+    </div>
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="quiz_options">
+
+        </div>
+    </div>
+    <br>
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="quiz_submit">
+
+        </div>
+    </div>
+    <div class='row justify-content-md-center'>
+        <div class="col-md-auto" id="quiz_result">
+
+        </div>
+    </div>
+    <br>
+    <div class='row'>
+        <div class="col-6" align="left" id="prev_button">
+
+        </div>
+        <div class="col-6" align="right" id="next_button">
+
+        </div>
     </div>
 </div>
 

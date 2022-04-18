@@ -8,45 +8,35 @@
 
 <!-- jquery -->
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>  
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-  <script type="text/javascript" src="{{ url_for('static', filename = 'layout.js') }}"></script>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
-  <style>
-    .titleNav{
-      font-size: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 
     <title>StartLiftCU</title>
-
-
   </head>
-  <body style="background-color: #add8e6; font-family: Tahoma;">
-
-
-  <div class = "container">
-    <div class="row">
-      <div class="col-md-3 titleNav">
-        <a href="/">StartLiftCU</a>
-      </div>
+  <body>
     
-      <div class = "col-md-3 lessonNav">
-        <a href="/lesson">Lessons</a>
+
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">StartLiftCU</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/lesson">Lessons</a>
       </div>
-      <div class = "col-md-3 quizNav">
-        <a href="/quiz">Quiz</a>
-      </div>
-      <div class = "col-md-3 etcNav">
-        <a href="/">???</a>
+      <div class="navbar-nav">
+        <a class="nav-link" href="/quizhome">Interactive Quiz</a>
       </div>
     </div>
-  </div> 
-  
+  </div>
+</nav>
 
     <div class="container">   
         {% block content %}
