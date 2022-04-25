@@ -9,11 +9,11 @@ lesson_data = {
     "1": {
         "id": 1,
         "title": "Setup",
-        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other—not turned inward or outward. Hips should be in line with the shoulders, and the lower back should have a neutral curve—not completely flat, but not overly curved either. To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
+        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other, not turned inward or outward. Hips should be in line with the shoulders, and the lower back should have a neutral curve, not completely flat, but not overly curved either. To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
     },
     "2": {
         "id": 2,
-        "title": "Beginning",
+        "title": "Start",
         "content": "Engage the core (belly button to spine and tighten abdominals). Squeeze the glutes. Keeping pressure through the hands, bend the elbows to lower the chest, hips, and head toward the ground- together as one."
     },
     "3": {
@@ -23,8 +23,31 @@ lesson_data = {
     },
     "4": {
         "id": 4,
-        "title": "End",
+        "title": "Finish",
         "content": "Engage the pectorals and imagine you're pushing the ground away from you. Keep your energy focused in your core and NOT in your toes. Continue to push up, ending, and at available range of motion in the arms while engaging your triceps."
+    },
+    "5": {
+        "id": 5,
+        "title": "Muscles",
+        "content": "The following diagram shows all of the muscles groups mentioned in the previous slides. Click on them to review when they should be worked throughout the pushup!"
+    }
+}
+
+lesson_pics = {
+    "hands": {
+        "narrow": "While narrow hands are not necessarily incorrect, this pushup variation is much too advanced for beginners. This hand placement will result in deeper activation of muscles, compared to the normal hand placement.",
+        "neutral": "This is an example of perfect hand placement. You should strive for this position every time.",
+        "wide": "While wide hands are not necessarily incorrect, this pushup variation results in only working your biceps, and nothing else. For beginners it is important to practice with the normal positioning first before moving into variations."
+    },
+    "elbows": {
+        "normal": "This is an example of perfect elbow placement, right around a 45 degree angle from the shoulder. You should strive for this position every time.",
+        "wide": "Although the elbows arre not too flared out, you are still putting unwanted stress on joints compared to the normal elbow positioning",
+        "extrawide": "Flaring your elbows out in this way puts unwanted stress on the shoulder and elbow joint, and reduces chest involvement."
+    },
+    "back": {
+        "arch": "This is a sign of a weak core, resulting in your glutes beings raised making it easier to hold the position. Remember that it is more important to have proper form rather than more reps, so you should stop the workout once your form goes awry.",
+        "normal": "This is an example of a perfectly neutrual back. You should strive for this position every time.",
+        "dip": "This is a sign of a weak core, or not engaging the core in general. Another thing here to remeber is that your glutes need to be activated as well, which should help straigten your back."
     }
 }
 
@@ -97,7 +120,7 @@ def lesson(id=None):
     lesson = lesson_data[str(id)]
 
 
-    return render_template('lesson.html', lesson = lesson)
+    return render_template('lesson.html', lesson = lesson, lesson_pics = lesson_pics)
 
 
 # quiz home page route
