@@ -35,30 +35,47 @@ user_answers = {}
 quiz_data = {
     "1": {
         "id": 1,
-        "content": "What do you notice is different about this and your pushup based on triceps?",
-        "options": {1: "Shoulder and Elbow Angle", 2: "Feet", 3: "Stomach", 4: "Other"},
+        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "options": {1: "Core", 2: "Neck", 3: "Glutes", 4: "Tricep"},
         "correct_answer": 1,
         "is_answered": 0,
         "user_answer": 0,
-        "result": ""
+        "result": "",
+        "video":"https://youtu.be/yACNIpMQmSg",
+        "refer_id": 1
     },
     "2": {
         "id": 2,
-        "content": "What do you notice is different about this and your pushup based on delts?",
-        "options": {1: "Shoulder Tension", 2: "Head Angle", 3: "Hand Angle", 4: "Other"},
+        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "options": {1: "Hands", 2: "Glutes", 3: "Shoulders", 4: "Deltoids"},
         "correct_answer": 2,
         "is_answered": 0,
         "user_answer": 0,
-        "result": ""
+        "result": "",
+        "video":"https://youtu.be/OwW8XbO1sUg",
+        "refer_id": 2
     },
     "3": {
         "id": 3,
-        "content": "What do you notice is different about this and your pushup based on pecs?",
-        "options": {1: "Shoulder and Elbow Angle", 2: "Hand Angle", 3: "Shoulder Tension", 4: "Other"},
+        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "options": {1: "Shoulders", 2: "Pectorals", 3: "Neck", 4: "Hands"},
         "correct_answer": 2,
         "is_answered": 0,
         "user_answer": 0,
-        "result": ""
+        "result": "",
+        "video": "https://youtu.be/fUlbA4BzY-o",
+        "refer_id": 3
+    },
+    "4": {
+        "id": 4,
+        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "options": {1: "Shoulders", 2: "Glutes", 3: "Hands", 4: "Deltoids"},
+        "correct_answer": 3,
+        "is_answered": 0,
+        "user_answer": 0,
+        "result": "",
+        "video": "https://youtu.be/6CvZttW86CU",
+        "refer_id": 4
     }
 }
 
@@ -120,14 +137,17 @@ def grade():
         quiz_data[str(quiz_id)]["result"] = result
         correct_answer_count += 1
     else:
-        result = "You are almost there! The correct answer is [" + quiz_data[str(quiz_id)]["options"][quiz_data[str(quiz_id)]["correct_answer"]] + "]. Click next to proceed to the next question."
+        result = "You are almost there! The correct answer is [" + quiz_data[str(quiz_id)]["options"][quiz_data[str(quiz_id)]["correct_answer"]] + "]. Click [Next -->] to proceed to the next question."
         quiz_data[str(quiz_id)]["result"] = result
 
     quiz_data[str(quiz_id)]["is_answered"] = 1
     quiz_data[str(quiz_id)]["user_answer"] = user_answer
     user_answers[str(quiz_id)] = user_answer
 
-    return jsonify(result=result)
+    #need to determined dynamically later
+    refer_id = quiz_data[str(quiz_id)]["refer_id"]
+
+    return jsonify(result=result, refer_id=refer_id)
 
 # restart the whole quiz
 @app.route('/restart', methods=['GET'])
