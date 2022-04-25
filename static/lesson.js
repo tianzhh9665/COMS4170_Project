@@ -88,7 +88,6 @@ function displayPushupEnd(){
     var up = document.createElement('img')
     up.src = "https://images.squarespace-cdn.com/content/v1/54f9e84de4b0d13f30bba4cb/1525880695362-HKA01C1JI6WX80TQ2BSH/push+ups.gif?format=750w"
     up.alt = "gif of pushing up"
-    up.height = "200px"
     begPushUp.append(up)
     
 }
