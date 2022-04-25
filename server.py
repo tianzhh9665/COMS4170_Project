@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify
+from flask import Response, request, jsonify, redirect, url_for
 app = Flask(__name__)
 
 
@@ -58,46 +58,47 @@ user_answers = {}
 quiz_data = {
     "1": {
         "id": 1,
-        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "content": "Watch the video below, what part of the body is off here?",
         "options": {1: "Core", 2: "Neck", 3: "Glutes", 4: "Tricep"},
         "correct_answer": 1,
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video":"https://youtu.be/yACNIpMQmSg",
+        #"video":"https://youtu.be/yACNIpMQmSg",
+        "video":"core.mp4",
         "refer_id": 1
     },
     "2": {
         "id": 2,
-        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "content": "Watch the video below, what part of the body is off here?",
         "options": {1: "Hands", 2: "Glutes", 3: "Shoulders", 4: "Deltoids"},
         "correct_answer": 2,
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video":"https://youtu.be/OwW8XbO1sUg",
+        "video":"glutes.mp4",
         "refer_id": 2
     },
     "3": {
         "id": 3,
-        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "content": "Watch the video below, what part of the body is off here?",
         "options": {1: "Shoulders", 2: "Pectorals", 3: "Neck", 4: "Hands"},
         "correct_answer": 2,
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video": "https://youtu.be/fUlbA4BzY-o",
+        "video": "chest.mp4",
         "refer_id": 3
     },
     "4": {
         "id": 4,
-        "content": "Watch the video below, which protion is wrong comparing to the lessons you learned before?",
+        "content": "Watch the video below, what part of the body is off here?",
         "options": {1: "Shoulders", 2: "Glutes", 3: "Hands", 4: "Deltoids"},
         "correct_answer": 3,
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video": "https://youtu.be/6CvZttW86CU",
+        "video": "hand_elbow stance.mp4",
         "refer_id": 4
     }
 }
@@ -212,6 +213,10 @@ def score():
     total = len(quiz_data)
     
     return render_template('score.html',score=score, total=total) #insert var here if needed
+
+@app.route('/display/<filename>')
+def display_video(filename):
+    return redirect(url_for('static',filename='videos/' + filename), code=301)
 
 if __name__ == '__main__':
    app.run(debug = True)
