@@ -174,5 +174,29 @@ if __name__ == '__main__':
    app.run(debug = True)
 
 
+'''
+UI HW12
 
+1 Core https://youtu.be/yACNIpMQmSg 
+other options: neck, glutes, tricep
+
+2 Glutes https://youtu.be/OwW8XbO1sUg 
+other options: hands, feet, shoulders, deltoids
+
+3 Pectorals https://youtu.be/fUlbA4BzY-o 
+other options: feet, shoulders, neck, hands
+
+4 Hands https://youtu.be/6CvZttW86CU 
+other options: shoulders, glutes, deltoids
+
+Choosing wrong choice (just shows why it is not the answer, kinda)
+-hands leads to: image popup (or anything similar, i put all these screenshots on imgur, but I’m not sure if you can jquery src using these url’s) https://imgur.com/a/MAjB6Sc 
+-shoulders, abs, glutes lead to: https://imgur.com/a/9xAwVth 
+-pectorals leads to: https://imgur.com/a/ZwT5PYf
+The numbered ones are the correct answers, and it shows a video showing someone neglecting an issue there. 
+The other options are the “multiple choice misdirection dud choices,” and to make it interactive, choosing t
+he dud answers can lead to specific image links that are supposed to teach correctly. 
+The simplest implementation would be just to turn the imgur links into popup ones. Hopefully you 
+shouldn’t have to change much else
+'''
 
