@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify
+from flask import Response, request, jsonify, redirect, url_for
 app = Flask(__name__)
 
 
@@ -41,7 +41,8 @@ quiz_data = {
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video":"https://youtu.be/yACNIpMQmSg",
+        #"video":"https://youtu.be/yACNIpMQmSg",
+        "video":"core.mp4",
         "refer_id": 1
     },
     "2": {
@@ -52,7 +53,7 @@ quiz_data = {
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video":"https://youtu.be/OwW8XbO1sUg",
+        "video":"glutes.mp4",
         "refer_id": 2
     },
     "3": {
@@ -63,7 +64,7 @@ quiz_data = {
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video": "https://youtu.be/fUlbA4BzY-o",
+        "video": "chest.mp4",
         "refer_id": 3
     },
     "4": {
@@ -74,7 +75,7 @@ quiz_data = {
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        "video": "https://youtu.be/6CvZttW86CU",
+        "video": "hand_elbow stance.mp4",
         "refer_id": 4
     }
 }
@@ -189,6 +190,10 @@ def score():
     total = len(quiz_data)
     
     return render_template('score.html',score=score, total=total) #insert var here if needed
+
+@app.route('/display/<filename>')
+def display_video(filename):
+    return redirect(url_for('static',filename='videos/' + filename), code=301)
 
 if __name__ == '__main__':
    app.run(debug = True)

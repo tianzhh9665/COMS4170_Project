@@ -19,14 +19,17 @@ function populateQuiz() {
 
     var quiz_video = document.getElementById("quiz_video");
     quiz_video.appendChild(document.createElement('br'));
-    video = document.createElement('p');
-    video.innerHTML = "<a href='" + quiz_item["video"] + "'>Video Link Here (will be changed to a embedded video player later)</a>";
-//    video = document.createElement('video');
-//    video.src = "core.mp4";
-//    video.autoplay = false;
-//    video.controls = true;
-//    video.height = 240;
-//    video.width = 360;
+    //video = document.createElement('p');
+    //video.innerHTML = "<a href='" + quiz_item["video"] + "'>Video Link Here (will be changed to a embedded video player later)</a>";
+    var video = document.createElement('video');
+    var source = document.createElement('source');
+    video.appendChild(source);
+    source.src = "/display/" + quiz_item["video"];
+    //video.src = "core.mp4";
+    video.autoplay = false;
+    video.controls = true;
+    video.height = 240;
+    video.width = 360;
     quiz_video.appendChild(video);
 
     var quiz_options = quiz_item["options"];
