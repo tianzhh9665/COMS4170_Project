@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-from flask import Response, request, jsonify
+from flask import Response, request, jsonify, redirect, url_for
 app = Flask(__name__)
 
 
@@ -9,11 +9,11 @@ lesson_data = {
     "1": {
         "id": 1,
         "title": "Setup",
-        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other—not turned inward or outward. Hips should be in line with the shoulders, and the lower back should have a neutral curve—not completely flat, but not overly curved either. To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
+        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other, not turned inward or outward. Hips should be in line with the shoulders, and the lower back should have a neutral curve, not completely flat, but not overly curved either. To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
     },
     "2": {
         "id": 2,
-        "title": "Beginning",
+        "title": "Start",
         "content": "Engage the core (belly button to spine and tighten abdominals). Squeeze the glutes. Keeping pressure through the hands, bend the elbows to lower the chest, hips, and head toward the ground- together as one."
     },
     "3": {
@@ -23,8 +23,31 @@ lesson_data = {
     },
     "4": {
         "id": 4,
-        "title": "End",
+        "title": "Finish",
         "content": "Engage the pectorals and imagine you're pushing the ground away from you. Keep your energy focused in your core and NOT in your toes. Continue to push up, ending, and at available range of motion in the arms while engaging your triceps."
+    },
+    "5": {
+        "id": 5,
+        "title": "Muscles",
+        "content": "The following diagram shows all of the muscles groups mentioned in the previous slides. Click on them to review when they should be worked throughout the pushup!"
+    }
+}
+
+lesson_pics = {
+    "hands": {
+        "narrow": "While narrow hands are not necessarily incorrect, this pushup variation is much too advanced for beginners. This hand placement will result in deeper activation of muscles, compared to the normal hand placement.",
+        "neutral": "This is an example of perfect hand placement. You should strive for this position every time.",
+        "wide": "While wide hands are not necessarily incorrect, this pushup variation results in only working your biceps, and nothing else. For beginners it is important to practice with the normal positioning first before moving into variations."
+    },
+    "elbows": {
+        "normal": "This is an example of perfect elbow placement, right around a 45 degree angle from the shoulder. You should strive for this position every time.",
+        "wide": "Although the elbows arre not too flared out, you are still putting unwanted stress on joints compared to the normal elbow positioning",
+        "extrawide": "Flaring your elbows out in this way puts unwanted stress on the shoulder and elbow joint, and reduces chest involvement."
+    },
+    "back": {
+        "arch": "This is a sign of a weak core, resulting in your glutes beings raised making it easier to hold the position. Remember that it is more important to have proper form rather than more reps, so you should stop the workout once your form goes awry.",
+        "normal": "This is an example of a perfectly neutrual back. You should strive for this position every time.",
+        "dip": "This is a sign of a weak core, or not engaging the core in general. Another thing here to remeber is that your glutes need to be activated as well, which should help straigten your back."
     }
 }
 
@@ -35,30 +58,48 @@ user_answers = {}
 quiz_data = {
     "1": {
         "id": 1,
-        "content": "What do you notice is different about this and your pushup based on triceps?",
-        "options": {1: "Shoulder and Elbow Angle", 2: "Feet", 3: "Stomach", 4: "Other"},
+        "content": "Watch the video below, what part of the body is off here?",
+        "options": {1: "Core", 2: "Neck", 3: "Glutes", 4: "Tricep"},
         "correct_answer": 1,
         "is_answered": 0,
         "user_answer": 0,
-        "result": ""
+        "result": "",
+        #"video":"https://youtu.be/yACNIpMQmSg",
+        "video":"core.mp4",
+        "refer_id": 1
     },
     "2": {
         "id": 2,
-        "content": "What do you notice is different about this and your pushup based on delts?",
-        "options": {1: "Shoulder Tension", 2: "Head Angle", 3: "Hand Angle", 4: "Other"},
+        "content": "Watch the video below, what part of the body is off here?",
+        "options": {1: "Hands", 2: "Glutes", 3: "Shoulders", 4: "Deltoids"},
         "correct_answer": 2,
         "is_answered": 0,
         "user_answer": 0,
-        "result": ""
+        "result": "",
+        "video":"glutes.mp4",
+        "refer_id": 2
     },
     "3": {
         "id": 3,
-        "content": "What do you notice is different about this and your pushup based on pecs?",
-        "options": {1: "Shoulder and Elbow Angle", 2: "Hand Angle", 3: "Shoulder Tension", 4: "Other"},
+        "content": "Watch the video below, what part of the body is off here?",
+        "options": {1: "Shoulders", 2: "Pectorals", 3: "Neck", 4: "Hands"},
         "correct_answer": 2,
         "is_answered": 0,
         "user_answer": 0,
-        "result": ""
+        "result": "",
+        "video": "chest.mp4",
+        "refer_id": 3
+    },
+    "4": {
+        "id": 4,
+        "content": "Watch the video below, what part of the body is off here?",
+        "options": {1: "Shoulders", 2: "Glutes", 3: "Hands", 4: "Deltoids"},
+        "correct_answer": 3,
+        "is_answered": 0,
+        "user_answer": 0,
+        "result": "",
+        "video": "hand_elbow stance.mp4",
+        "refer_id": 4
     }
 }
 
@@ -80,7 +121,7 @@ def lesson(id=None):
     lesson = lesson_data[str(id)]
 
 
-    return render_template('lesson.html', lesson = lesson)
+    return render_template('lesson.html', lesson = lesson, lesson_pics = lesson_pics)
 
 
 # quiz home page route
@@ -120,14 +161,17 @@ def grade():
         quiz_data[str(quiz_id)]["result"] = result
         correct_answer_count += 1
     else:
-        result = "You are almost there! The correct answer is [" + quiz_data[str(quiz_id)]["options"][quiz_data[str(quiz_id)]["correct_answer"]] + "]. Click next to proceed to the next question."
+        result = "You are almost there! The correct answer is [" + quiz_data[str(quiz_id)]["options"][quiz_data[str(quiz_id)]["correct_answer"]] + "]. Click [Next -->] to proceed to the next question."
         quiz_data[str(quiz_id)]["result"] = result
 
     quiz_data[str(quiz_id)]["is_answered"] = 1
     quiz_data[str(quiz_id)]["user_answer"] = user_answer
     user_answers[str(quiz_id)] = user_answer
 
-    return jsonify(result=result)
+    #need to determined dynamically later
+    refer_id = quiz_data[str(quiz_id)]["refer_id"]
+
+    return jsonify(result=result, refer_id=refer_id)
 
 # restart the whole quiz
 @app.route('/restart', methods=['GET'])
@@ -169,6 +213,10 @@ def score():
     total = len(quiz_data)
     
     return render_template('score.html',score=score, total=total) #insert var here if needed
+
+@app.route('/display/<filename>')
+def display_video(filename):
+    return redirect(url_for('static',filename='videos/' + filename), code=301)
 
 if __name__ == '__main__':
    app.run(debug = True)

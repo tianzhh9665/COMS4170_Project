@@ -17,6 +17,21 @@ function populateQuiz() {
     content_text.innerHTML = quiz_item["content"];
     quiz_content.appendChild(content_text);
 
+    var quiz_video = document.getElementById("quiz_video");
+    quiz_video.appendChild(document.createElement('br'));
+    //video = document.createElement('p');
+    //video.innerHTML = "<a href='" + quiz_item["video"] + "'>Video Link Here (will be changed to a embedded video player later)</a>";
+    var video = document.createElement('video');
+    var source = document.createElement('source');
+    video.appendChild(source);
+    source.src = "/display/" + quiz_item["video"];
+    //video.src = "core.mp4";
+    video.autoplay = false;
+    video.controls = true;
+    video.height = 240;
+    video.width = 360;
+    quiz_video.appendChild(video);
+
     var quiz_options = quiz_item["options"];
     var quiz_option_div = document.getElementById("quiz_options");
     quiz_option_div.appendChild(document.createElement('br'));
@@ -79,6 +94,12 @@ function preProcess(quiz_item, total_item, submit_button, prev_button, next_butt
         var result_text = document.createElement('p');
         result_text.style = "font-size: 25px; color: red;";
         result_text.innerHTML = quiz_item["result"];
+
+        var result_text2 = document.createElement('p');
+        result_text2.style = "font-size: 25px; color: red;";
+        result_text2.innerHTML = "Besides, you can click <a href='" + "/lesson/" + result["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
+        result_div.appendChild(result_text2);
+
         result_div.appendChild(result_text);
 
         document.getElementById("quiz_submit").remove();
@@ -112,6 +133,11 @@ function submitAnswer(answer) {
             result_text.style = "font-size: 25px; color: red;";
             result_text.innerHTML = result["result"];
             result_div.appendChild(result_text);
+
+            var result_text2 = document.createElement('p');
+            result_text2.style = "font-size: 25px; color: red;";
+            result_text2.innerHTML = "Besides, you can click <a href='" + "/lesson/" + result["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
+            result_div.appendChild(result_text2);
         },
         error: function(request, status, error){
             console.log(request)

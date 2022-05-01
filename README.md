@@ -7,6 +7,15 @@ Weight Lifting
 Jaesung Park, Tianzhi Huang, Kevin Kearney, Carlos Gonzalez-Romero
 
 
+Update on 04/25/2022 done by Tianzhi Huang:
+
+1. Implemented redirection when users answer the quiz, they could go back and refer to the lesson materials.
+2. Include image for quizhome.html, and videos for each quiz. 
+3. Modifying backend data structures to incoperate thos
+4. Video have been downloaded and embedded locally.
+
+
+
 Updates on 04/18/2022 done by Tianzhi Huang:
 
 1. Completed UI design of routes: /quizhome, /quiz/<id>, /score 
