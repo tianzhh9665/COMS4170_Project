@@ -7,7 +7,7 @@ function populateQuiz() {
     }
     var title_text = document.createElement('p');
     title_text.style = "font-size: 35px";
-    title_text.innerHTML = "Quiz Question " + quiz_item["id"];
+    title_text.innerHTML = "Question " + quiz_item["id"] + " / " + total_item;
     document.getElementById("quiz_title").appendChild(title_text);
 
     var quiz_content = document.getElementById("quiz_content");
@@ -18,14 +18,11 @@ function populateQuiz() {
     quiz_content.appendChild(content_text);
 
     var quiz_video = document.getElementById("quiz_video");
-    quiz_video.appendChild(document.createElement('br'));
-    //video = document.createElement('p');
-    //video.innerHTML = "<a href='" + quiz_item["video"] + "'>Video Link Here (will be changed to a embedded video player later)</a>";
+    //quiz_video.appendChild(document.createElement('br'));
     var video = document.createElement('video');
     var source = document.createElement('source');
     video.appendChild(source);
     source.src = "/display/" + quiz_item["video"];
-    //video.src = "core.mp4";
     video.autoplay = false;
     video.controls = true;
     video.height = 240;
@@ -89,18 +86,17 @@ function preProcess(quiz_item, total_item, submit_button, prev_button, next_butt
         }
 
         var result_div =  document.getElementById("quiz_result");
-        result_div.appendChild(document.createElement('br'));
+        //result_div.appendChild(document.createElement('br'));
 
         var result_text = document.createElement('p');
-        result_text.style = "font-size: 25px; color: red;";
+        result_text.style = "font-size: 20px; color: red;text-align: center;";
         result_text.innerHTML = quiz_item["result"];
+        result_div.appendChild(result_text);
 
         var result_text2 = document.createElement('p');
-        result_text2.style = "font-size: 25px; color: red;";
-        result_text2.innerHTML = "Besides, you can click <a href='" + "/lesson/" + result["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
+        result_text2.style = "font-size: 20px; color: red;text-align: center;";
+        result_text2.innerHTML = "Besides, you can click <a href='" + "/lesson/" + quiz_item["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
         result_div.appendChild(result_text2);
-
-        result_div.appendChild(result_text);
 
         document.getElementById("quiz_submit").remove();
     }
@@ -127,15 +123,15 @@ function submitAnswer(answer) {
             document.getElementById("quiz_submit_button").disabled = true;
             document.getElementById("quiz_submit").remove();
             var result_div =  document.getElementById("quiz_result");
-            result_div.appendChild(document.createElement('br'));
+            //result_div.appendChild(document.createElement('br'));
 
             var result_text = document.createElement('p');
-            result_text.style = "font-size: 25px; color: red;";
+            result_text.style = "font-size: 20px; color: red;text-align: center;";
             result_text.innerHTML = result["result"];
             result_div.appendChild(result_text);
 
             var result_text2 = document.createElement('p');
-            result_text2.style = "font-size: 25px; color: red;";
+            result_text2.style = "font-size: 20px; color: red;text-align: center;";
             result_text2.innerHTML = "Besides, you can click <a href='" + "/lesson/" + result["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
             result_div.appendChild(result_text2);
         },
@@ -171,6 +167,9 @@ $(document).ready(function(){
     populateQuiz();
     if (document.getElementById("quiz_submit_button") != null) {
         document.getElementById("quiz_submit_button").addEventListener("click", toSubmit);
+    }
+    if (quiz["id"] == total) {
+        document.getElementById("quiz_next_button").innerHTML = "Score";
     }
     document.getElementById("quiz_prev_button").addEventListener("click", toPrev);
     document.getElementById("quiz_next_button").addEventListener("click", toNext);

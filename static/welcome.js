@@ -18,10 +18,17 @@ function displayWelcome(){
     document.getElementById("welcomeImage").appendChild(image_text)
 
     var next_text = document.createElement('p')
-    next_text.innerHTML = "Click the button to continue to the lesson!"
+    next_text.style = "font-size: 20px; text-align: center;";
+    next_text.innerHTML = "Click the button below to start your learning!"
     document.getElementById("welcomeNext").appendChild(next_text)
-    let nextButton='<button type="button" id="nextBtn" class="btn btn-primary center">Next: Lesson</button>'
-    $("#welcomeNext").append(nextButton)
+
+    var next_text_2 = document.createElement('p')
+    next_text_2.style = "font-size: 20px; text-align: center;";
+    next_text_2.innerHTML = "And remember you can always use the navigation bar on the top to navigate";
+    document.getElementById("welcomeNext").appendChild(next_text_2)
+
+    let nextButton='<button type="button" id="nextBtn" class="btn btn-primary center">Next: Lessons</button>'
+    $("#buttonDiv").append(nextButton)
 }
 
 $(document).ready(function(){

@@ -58,19 +58,18 @@ user_answers = {}
 quiz_data = {
     "1": {
         "id": 1,
-        "content": "Watch the video below, what part of the body is off here?",
+        "content": "Watch the video below. Which part of the body(man on the right) is off here?",
         "options": {1: "Core", 2: "Neck", 3: "Glutes", 4: "Tricep"},
         "correct_answer": 1,
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
-        #"video":"https://youtu.be/yACNIpMQmSg",
         "video":"core.mp4",
-        "refer_id": 1
+        "refer_id": 2
     },
     "2": {
         "id": 2,
-        "content": "Watch the video below, what part of the body is off here?",
+        "content": "Watch the video below. Which part of the body(woman on the left) is off here?",
         "options": {1: "Hands", 2: "Glutes", 3: "Shoulders", 4: "Deltoids"},
         "correct_answer": 2,
         "is_answered": 0,
@@ -81,25 +80,47 @@ quiz_data = {
     },
     "3": {
         "id": 3,
-        "content": "Watch the video below, what part of the body is off here?",
+        "content": "Watch the video below. Which part of the body is off here?",
         "options": {1: "Shoulders", 2: "Pectorals", 3: "Neck", 4: "Hands"},
         "correct_answer": 2,
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
         "video": "chest.mp4",
-        "refer_id": 3
+        "refer_id": 4
     },
     "4": {
         "id": 4,
-        "content": "Watch the video below, what part of the body is off here?",
+        "content": "Watch the video below. Which part of the body is off here?",
         "options": {1: "Shoulders", 2: "Glutes", 3: "Hands", 4: "Deltoids"},
         "correct_answer": 3,
         "is_answered": 0,
         "user_answer": 0,
         "result": "",
         "video": "hand_elbow stance.mp4",
-        "refer_id": 4
+        "refer_id": 1
+    },
+    "5": {
+        "id": 5,
+        "content": "Watch the video below. Which part of the body is off here?",
+        "options": {1: "Shoulders", 2: "Hands", 3: "Pectorals", 4: "Neck"},
+        "correct_answer": 4,
+        "is_answered": 0,
+        "user_answer": 0,
+        "result": "",
+        "video": "neck.mp4",
+        "refer_id": 1
+    },
+    "6": {
+        "id": 6,
+        "content": "Watch the video below. Which part of the body is off here?",
+        "options": {1: "Hands", 2: "Back", 3: "Shoulders", 4: "Glutes"},
+        "correct_answer": 2,
+        "is_answered": 0,
+        "user_answer": 0,
+        "result": "",
+        "video": "back_hands.mp4",
+        "refer_id": 2
     }
 }
 
@@ -157,11 +178,17 @@ def grade():
     result = ""
 
     if user_answer == quiz_data[str(quiz_id)]["correct_answer"]:
-        result = "Congratulation, You got the correct answer! Click next to proceed to the next question."
+        if quiz_id == len(quiz_data):
+            result = "Congratulation, You got the correct answer! Click [Score] to see what you did in the quiz."
+        else:
+            result = "Congratulation, You got the correct answer! Click [Next] to proceed to the next question."
         quiz_data[str(quiz_id)]["result"] = result
         correct_answer_count += 1
     else:
-        result = "You are almost there! The correct answer is [" + quiz_data[str(quiz_id)]["options"][quiz_data[str(quiz_id)]["correct_answer"]] + "]. Click [Next -->] to proceed to the next question."
+        if quiz_id == len(quiz_data):
+            result = "You are almost there! The correct answer is [" + quiz_data[str(quiz_id)]["options"][quiz_data[str(quiz_id)]["correct_answer"]] + "]. Click [Score] to see what you did in the quiz."
+        else:
+            result = "You are almost there! The correct answer is [" + quiz_data[str(quiz_id)]["options"][quiz_data[str(quiz_id)]["correct_answer"]] + "]. Click [Next] to proceed to the next question."
         quiz_data[str(quiz_id)]["result"] = result
 
     quiz_data[str(quiz_id)]["is_answered"] = 1
@@ -218,33 +245,9 @@ def score():
 def display_video(filename):
     return redirect(url_for('static',filename='videos/' + filename), code=301)
 
+@app.route('/displayImg/<filename>')
+def display_image(filename):
+    return redirect(url_for('static',filename='photos/' + filename), code=301)
+
 if __name__ == '__main__':
    app.run(debug = True)
-
-
-'''
-UI HW12
-
-1 Core https://youtu.be/yACNIpMQmSg 
-other options: neck, glutes, tricep
-
-2 Glutes https://youtu.be/OwW8XbO1sUg 
-other options: hands, feet, shoulders, deltoids
-
-3 Pectorals https://youtu.be/fUlbA4BzY-o 
-other options: feet, shoulders, neck, hands
-
-4 Hands https://youtu.be/6CvZttW86CU 
-other options: shoulders, glutes, deltoids
-
-Choosing wrong choice (just shows why it is not the answer, kinda)
--hands leads to: image popup (or anything similar, i put all these screenshots on imgur, but I’m not sure if you can jquery src using these url’s) https://imgur.com/a/MAjB6Sc 
--shoulders, abs, glutes lead to: https://imgur.com/a/9xAwVth 
--pectorals leads to: https://imgur.com/a/ZwT5PYf
-The numbered ones are the correct answers, and it shows a video showing someone neglecting an issue there. 
-The other options are the “multiple choice misdirection dud choices,” and to make it interactive, choosing t
-he dud answers can lead to specific image links that are supposed to teach correctly. 
-The simplest implementation would be just to turn the imgur links into popup ones. Hopefully you 
-shouldn’t have to change much else
-'''
-

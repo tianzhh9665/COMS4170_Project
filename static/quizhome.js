@@ -5,15 +5,23 @@ function populateQuizHomePage() {
     }
     var title_text = document.createElement('p');
     title_text.style = "font-size: 35px";
-    title_text.innerHTML = "Quiz: Watching a Demonstration";
+    title_text.innerHTML = "Quiz: Watching a video and answer the question";
     title.appendChild(title_text);
 
     var des = document.getElementById("quiz_home_des");
     des.appendChild(document.createElement('br'));
     var des_text = document.createElement('p');
-    des_text.style = "font-size: 20px";
-    des_text.innerHTML = "You are about to start the Quiz Section. Keep the injuries section in mind and watch this short clip of the pushup.";
+    des_text.style = "color:red; font-size: 25px;text-align: center;";
+    des_text.innerHTML = "You are about to start the Quiz Section. ";
+
     des.appendChild(des_text);
+
+    var des_text_2 = document.createElement('p');
+    des_text_2.style = "font-size: 20px;text-align: center;";
+    var text_2 = "There are 6 questions in total. For each question, you will watch a short video of people doing";
+    des_text_2.innerHTML = text_2 + " pushup. Answering the question by selecting which part of their body is off in that video."
+
+    des.appendChild(des_text_2);
 
     var quiz_start = document.getElementById("quiz_start");
     for (var i = 0; i < 2; i++) {

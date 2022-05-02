@@ -6,8 +6,6 @@ function displayLesson(){
 
     var next = (parseInt(lessonItem["id"])) + 1
 
-    
-
     //title of lesson content
     var title_text = document.createElement('p');
     title_text.style = "font-size: 35px";
@@ -97,7 +95,8 @@ function displayHands(value){
     if (parseInt(value) <= 10) {
         $("#handPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "../photos/wide_hands.jpg"
+        //photo.src = "../photos/wide_hands.jpg"
+        photo.src = "/displayImg/" + "wide_hands.jpeg";
         photo.alt = "picture of wide hands"
         handPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -107,7 +106,8 @@ function displayHands(value){
     if ((parseInt(value) > 10) && (parseInt(value) <= 20)) {
         $("#handPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "../photos/neutral_hands.jpg"
+        //photo.src = "../photos/neutral_hands.jpg"
+        photo.src = "/displayImg/" + "neutral_hands.jpeg";
         photo.alt = "picture of neutral hands"
         handPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -118,6 +118,7 @@ function displayHands(value){
         $("#handPicture").empty()
         var photo = document.createElement('img')
         photo.src = "../photos/narrow_hands.jpg"
+         photo.src = "/displayImg/" + "narrow_hands.jpeg";
         photo.alt = "picture of narrow hands"
         handPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -130,7 +131,8 @@ function displayElbows(value){
     if (parseInt(value) <= 10) {
         $("#elbowPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "/photos/test.jpeg"
+        //photo.src = "/photos/test.jpeg"
+        photo.src = "/displayImg/" + "test.jpeg";
         photo.alt = "picture of test elbows"
         elbowPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -140,7 +142,8 @@ function displayElbows(value){
     if ((parseInt(value) > 10) && (parseInt(value) <= 20)) {
         $("#elbowPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "../photos/wide_elbows.jpg"
+        //photo.src = "../photos/wide_elbows.jpg"
+        photo.src = "/displayImg/" + "wide_elbows.jpeg";
         photo.alt = "picture of wide elbows"
         elbowPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -150,7 +153,8 @@ function displayElbows(value){
     if (parseInt(value) > 20) {
         $("#elbowPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "../photos/extrawide_elbows.jpg"
+        //photo.src = "../photos/extrawide_elbows.jpg"
+        photo.src = "/displayImg/" + "extrawide_elbows.jpeg";
         photo.alt = "picture of extra wide elbows"
         elbowPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -164,7 +168,8 @@ function displayBack(value) {
     if (parseInt(value) <= 10) {
         $("#backPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "/photos/test.jpeg"
+        //photo.src = "/photos/test.jpeg"
+        photo.src = "/displayImg/" + "test.jpeg";
         photo.alt = "picture of dip back"
         backPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -174,7 +179,8 @@ function displayBack(value) {
     if ((parseInt(value) > 10) && (parseInt(value) <= 20)) {
         $("#backPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "../photos/normal_back.jpg"
+        photo.src = "/displayImg/" + "normal_back.jpeg";
+        //photo.src = "../photos/normal_back.jpg"
         photo.alt = "picture of normal back"
         backPicture.appendChild(photo)
         var photo_text = document.createElement('p')
@@ -184,7 +190,8 @@ function displayBack(value) {
     if (parseInt(value) > 20) {
         $("#backPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "../photos/arch_back.jpg"
+        photo.src = "/displayImg/" + "arch_back.jpeg";
+        //photo.src = "../photos/arch_back.jpg"
         photo.alt = "picture of extra arch back"
         backPicture.appendChild(photo)
         var photo_text = document.createElement('p')

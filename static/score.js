@@ -12,7 +12,7 @@ function populatePage() {
     score_div.appendChild(document.createElement('br'));
 
     var score = document.createElement('p');
-    score.style = "font-size: 25px; color:red;";
+    score.style = "font-size: 35px; color:red;";
     score.innerHTML = "Your score is: " + user_score + " / " + total;
     score_div.appendChild(score);
 
@@ -20,7 +20,7 @@ function populatePage() {
     des_div.appendChild(document.createElement('br'));
 
     var des = document.createElement('p');
-    des.style = "font-size: 25px";
+    des.style = "font-size: 25px;";
     des.innerHTML = "Remember that your body best indicates if you are lifting correctly. If you know what muscle groups should be activated and can refine from watching the abundance of model examples online, you can easily set up a routine and feel confident that you are progressing!";
     des_div.appendChild(des);
 
