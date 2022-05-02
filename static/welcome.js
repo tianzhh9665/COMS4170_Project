@@ -34,7 +34,7 @@ function displayWelcome(){
 $(document).ready(function(){
     displayWelcome()
     //also handler for button click //
-    $("#welcomeNext").on("click", "#nextBtn", function(){
+    $("#buttonDiv").on("click", "#nextBtn", function(){
         window.location.href = "/lesson/1"
     })
 })
