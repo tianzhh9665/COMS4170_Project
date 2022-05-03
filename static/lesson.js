@@ -23,35 +23,50 @@ function displayLesson(){
     
     //Hands Slider
     if(next == 2) {
+        var info1 = document.createElement('p')
+        info1.innerHTML = "Slide to see the different positions:"
+        info1.style = "font-size: 20px"
         var range_bar = document.createElement('input')
         range_bar.type = "range"
+        range_bar.width = 500
         range_bar.min = "1"
         range_bar.max = "30"
         range_bar.value = "15"
         range_bar.id = "rangeHand"
         $("#handSlider").prepend(range_bar)
+        $("#handSlider").prepend(info1)
     }
 
     //Elbows Slider
     if(next == 2) {
+        var info2 = document.createElement('p')
+        info2.style = "font-size: 20px"
+        info2.innerHTML = "Slide to see the different positions:"
         var range_bar2 = document.createElement('input')
         range_bar2.type = "range"
+        range_bar.width = 500
         range_bar2.min = "1"
         range_bar2.max = "30"
         range_bar2.value = "15"
         range_bar2.id = "rangeElbow"
         $("#elbowSlider").prepend(range_bar2)
+        $("#elbowSlider").prepend(info2)
     }
 
     //back slider
     if(next == 4) {
+        var info3 = document.createElement('p')
+        info3.style = "font-size: 20px"
+        info3.innerHTML = "Slide to see the different positions:"
         var range_bar3 = document.createElement('input')
         range_bar3.type = "range"
+        range_bar.width = 500
         range_bar3.min = "1"
         range_bar3.max = "30"
         range_bar3.value = "15"
         range_bar3.id = "rangeBack"
         $("#backSlider").prepend(range_bar3)
+        $("#backSlider").prepend(info3)
     }
 
     //beginning pushup form 
@@ -95,9 +110,9 @@ function displayHands(value){
     if (parseInt(value) <= 10) {
         $("#handPicture").empty()
         var photo = document.createElement('img')
-        //photo.src = "../photos/wide_hands.jpg"
-        photo.src = "/displayImg/" + "wide_hands.jpeg";
+        photo.src = "/displayImg/" + "wide_hands.jpg";
         photo.alt = "picture of wide hands"
+        photo.width = 500
         handPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["hands"]["wide"]
@@ -106,9 +121,9 @@ function displayHands(value){
     if ((parseInt(value) > 10) && (parseInt(value) <= 20)) {
         $("#handPicture").empty()
         var photo = document.createElement('img')
-        //photo.src = "../photos/neutral_hands.jpg"
-        photo.src = "/displayImg/" + "neutral_hands.jpeg";
+        photo.src = "/displayImg/" + "neutral_hands.jpg";
         photo.alt = "picture of neutral hands"
+        photo.width = 500
         handPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["hands"]["neutral"]
@@ -117,9 +132,10 @@ function displayHands(value){
     if (parseInt(value) > 20) {
         $("#handPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "../photos/narrow_hands.jpg"
-         photo.src = "/displayImg/" + "narrow_hands.jpeg";
+        //photo.src = "../photos/narrow_hands.jpg"
+        photo.src = "/displayImg/" + "narrow_hands.jpg";
         photo.alt = "picture of narrow hands"
+        photo.width = 500
         handPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["hands"]["narrow"]
@@ -131,9 +147,9 @@ function displayElbows(value){
     if (parseInt(value) <= 10) {
         $("#elbowPicture").empty()
         var photo = document.createElement('img')
-        //photo.src = "/photos/test.jpeg"
-        photo.src = "/displayImg/" + "test.jpeg";
-        photo.alt = "picture of test elbows"
+        photo.src = "/displayImg/" + "normal_elbows.jpg";
+        photo.alt = "picture of normal elbows"
+        photo.width = 500
         elbowPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["elbows"]["normal"]
@@ -142,9 +158,9 @@ function displayElbows(value){
     if ((parseInt(value) > 10) && (parseInt(value) <= 20)) {
         $("#elbowPicture").empty()
         var photo = document.createElement('img')
-        //photo.src = "../photos/wide_elbows.jpg"
-        photo.src = "/displayImg/" + "wide_elbows.jpeg";
+        photo.src = "/displayImg/" + "wide_elbows.jpg";
         photo.alt = "picture of wide elbows"
+        photo.width = 500
         elbowPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["elbows"]["wide"]
@@ -153,9 +169,9 @@ function displayElbows(value){
     if (parseInt(value) > 20) {
         $("#elbowPicture").empty()
         var photo = document.createElement('img')
-        //photo.src = "../photos/extrawide_elbows.jpg"
-        photo.src = "/displayImg/" + "extrawide_elbows.jpeg";
+        photo.src = "/displayImg/" + "extrawide_elbows.jpg";
         photo.alt = "picture of extra wide elbows"
+        photo.width = 500
         elbowPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["elbows"]["extrawide"]
@@ -168,9 +184,9 @@ function displayBack(value) {
     if (parseInt(value) <= 10) {
         $("#backPicture").empty()
         var photo = document.createElement('img')
-        //photo.src = "/photos/test.jpeg"
-        photo.src = "/displayImg/" + "test.jpeg";
+        photo.src = "/displayImg/" + "dip_back.jpg";
         photo.alt = "picture of dip back"
+        photo.width = 500
         backPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["back"]["dip"]
@@ -179,9 +195,9 @@ function displayBack(value) {
     if ((parseInt(value) > 10) && (parseInt(value) <= 20)) {
         $("#backPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "/displayImg/" + "normal_back.jpeg";
-        //photo.src = "../photos/normal_back.jpg"
+        photo.src = "/displayImg/" + "normal_back.jpg";
         photo.alt = "picture of normal back"
+        photo.width = 500
         backPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["back"]["normal"]
@@ -190,21 +206,14 @@ function displayBack(value) {
     if (parseInt(value) > 20) {
         $("#backPicture").empty()
         var photo = document.createElement('img')
-        photo.src = "/displayImg/" + "arch_back.jpeg";
-        //photo.src = "../photos/arch_back.jpg"
+        photo.src = "/displayImg/" + "arch_back.jpg";
         photo.alt = "picture of extra arch back"
+        photo.width = 500
         backPicture.appendChild(photo)
         var photo_text = document.createElement('p')
         photo_text.innerHTML = lesson_pics["back"]["arch"]
         backPicture.appendChild(photo_text)
     }
-
-}
-
-    
-
-
-function displayMuscles() {
 
 }
 

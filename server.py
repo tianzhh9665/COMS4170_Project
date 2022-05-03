@@ -58,7 +58,7 @@ user_answers = {}
 quiz_data = {
     "1": {
         "id": 1,
-        "content": "Watch the video below. Which part of the body(man on the right) is off here?",
+        "content": "Watch the video below. Which part of the body (man on the right) is off here?",
         "options": {1: "Core", 2: "Neck", 3: "Glutes", 4: "Tricep"},
         "correct_answer": 1,
         "is_answered": 0,
@@ -69,7 +69,7 @@ quiz_data = {
     },
     "2": {
         "id": 2,
-        "content": "Watch the video below. Which part of the body(woman on the left) is off here?",
+        "content": "Watch the video below. Which part of the body (woman on the left) is off here?",
         "options": {1: "Hands", 2: "Glutes", 3: "Shoulders", 4: "Deltoids"},
         "correct_answer": 2,
         "is_answered": 0,
@@ -179,9 +179,9 @@ def grade():
 
     if user_answer == quiz_data[str(quiz_id)]["correct_answer"]:
         if quiz_id == len(quiz_data):
-            result = "Congratulation, You got the correct answer! Click [Score] to see what you did in the quiz."
+            result = "Congratulations, you got the correct answer! Click [Score] to see what you did in the quiz."
         else:
-            result = "Congratulation, You got the correct answer! Click [Next] to proceed to the next question."
+            result = "Congratulations, you got the correct answer! Click [Next] to proceed to the next question."
         quiz_data[str(quiz_id)]["result"] = result
         correct_answer_count += 1
     else:

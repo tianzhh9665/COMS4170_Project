@@ -89,13 +89,22 @@ function preProcess(quiz_item, total_item, submit_button, prev_button, next_butt
         //result_div.appendChild(document.createElement('br'));
 
         var result_text = document.createElement('p');
-        result_text.style = "font-size: 20px; color: red;text-align: center;";
+        result_text.style = "font-size: 20px;text-align: center;";
         result_text.innerHTML = quiz_item["result"];
+        if (quiz_item["result"].includes("Congratulations")) {
+            result_text.style = "color: green"
+            console.log('green')
+        }
+        else {
+            result_text.style = "color: red"
+            console.log('red')
+        }
+        console.log('done')
         result_div.appendChild(result_text);
 
         var result_text2 = document.createElement('p');
         result_text2.style = "font-size: 20px; color: red;text-align: center;";
-        result_text2.innerHTML = "Besides, you can click <a href='" + "/lesson/" + quiz_item["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
+        result_text2.innerHTML = "Also, you can click <a href='" + "/lesson/" + quiz_item["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
         result_div.appendChild(result_text2);
 
         document.getElementById("quiz_submit").remove();
@@ -126,13 +135,18 @@ function submitAnswer(answer) {
             //result_div.appendChild(document.createElement('br'));
 
             var result_text = document.createElement('p');
-            result_text.style = "font-size: 20px; color: red;text-align: center;";
             result_text.innerHTML = result["result"];
+            if (result["result"].includes("Congratulations")) {
+                result_text.style = "color: green;font-size: 20px;text-align: center;"
+            }
+            else {
+                result_text.style = "color: red;font-size: 20px;text-align: center;"
+            }
             result_div.appendChild(result_text);
 
             var result_text2 = document.createElement('p');
             result_text2.style = "font-size: 20px; color: red;text-align: center;";
-            result_text2.innerHTML = "Besides, you can click <a href='" + "/lesson/" + result["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
+            result_text2.innerHTML = "Also, you can click <a href='" + "/lesson/" + result["refer_id"] + "'> HERE</a> to go back to the corresponding lesson materials.";
             result_div.appendChild(result_text2);
         },
         error: function(request, status, error){
