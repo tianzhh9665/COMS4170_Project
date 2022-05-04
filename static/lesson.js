@@ -24,7 +24,7 @@ function displayLesson(){
     //Hands Slider
     if(next == 2) {
         var info1 = document.createElement('p')
-        info1.innerHTML = "Slide to see the different positions:"
+        info1.innerHTML = "Slide to see the different hand positions:"
         info1.style = "font-size: 20px"
         var range_bar = document.createElement('input')
         range_bar.type = "range"
@@ -41,7 +41,7 @@ function displayLesson(){
     if(next == 2) {
         var info2 = document.createElement('p')
         info2.style = "font-size: 20px"
-        info2.innerHTML = "Slide to see the different positions:"
+        info2.innerHTML = "Slide to see the different elbow positions:"
         var range_bar2 = document.createElement('input')
         range_bar2.type = "range"
         range_bar2.width = 500
@@ -57,7 +57,7 @@ function displayLesson(){
     if(next == 4) {
         var info3 = document.createElement('p')
         info3.style = "font-size: 20px"
-        info3.innerHTML = "Slide to see the different positions:"
+        info3.innerHTML = "Slide to see the different back positions:"
         var range_bar3 = document.createElement('input')
         range_bar3.type = "range"
         range_bar3.width = 500
