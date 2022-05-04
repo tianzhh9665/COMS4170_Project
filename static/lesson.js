@@ -44,7 +44,7 @@ function displayLesson(){
         info2.innerHTML = "Slide to see the different positions:"
         var range_bar2 = document.createElement('input')
         range_bar2.type = "range"
-        range_bar.width = 500
+        range_bar2.width = 500
         range_bar2.min = "1"
         range_bar2.max = "30"
         range_bar2.value = "15"
@@ -60,7 +60,7 @@ function displayLesson(){
         info3.innerHTML = "Slide to see the different positions:"
         var range_bar3 = document.createElement('input')
         range_bar3.type = "range"
-        range_bar.width = 500
+        range_bar3.width = 500
         range_bar3.min = "1"
         range_bar3.max = "30"
         range_bar3.value = "15"
@@ -101,6 +101,7 @@ function displayPushupEnd(){
     var up = document.createElement('img')
     up.src = "https://images.squarespace-cdn.com/content/v1/54f9e84de4b0d13f30bba4cb/1525880695362-HKA01C1JI6WX80TQ2BSH/push+ups.gif?format=750w"
     up.alt = "gif of pushing up"
+    up.style = "width: 360px; height: 360px;"
     begPushUp.append(up)
     
 }
