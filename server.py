@@ -9,7 +9,7 @@ lesson_data = {
     "1": {
         "id": 1,
         "title": "Setup",
-        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other, not turned inward or outward. Hips should be in line with the shoulders, and the lower back should have a neutral curve, not completely flat, but not overly curved either. To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
+        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other, not turned inward or outward. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
     },
     "2": {
         "id": 2,

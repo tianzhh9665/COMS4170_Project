@@ -12,6 +12,10 @@
     background-color: bisque;
 }
 
+.dark{
+    font-weight: bold;
+}
+
 .welcome-title{
     padding-top: 15px;
     font-size: xx-large;
