@@ -18,8 +18,8 @@ function populateQuizHomePage() {
 
     var des_text_2 = document.createElement('p');
     des_text_2.style = "font-size: 20px;text-align: center;";
-    var text_2 = "There are 6 questions in total. For each question, you will watch a short video of people doing";
-    des_text_2.innerHTML = text_2 + " pushup. Answering the question by selecting which part of their body is off in that video."
+    var text_2 = "There are 6 questions in total. For each question, you will watch a short video of people doing a";
+    des_text_2.innerHTML = text_2 + " pushup. Answer the question by selecting which part of their body has incorrect form in that video."
 
     des.appendChild(des_text_2);
 

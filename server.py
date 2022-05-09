@@ -9,27 +9,22 @@ lesson_data = {
     "1": {
         "id": 1,
         "title": "Setup",
-        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other, not turned inward or outward. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body."
+        "content": "Hands should be slightly outside shoulder-width apart at chest level. Feet should be hip-width apart and parallel to each other, not turned inward or outward. The head should be positioned so the ears are in line with the shoulders, with your forehead parallel to the ground."
     },
     "2": {
         "id": 2,
         "title": "Start",
-        "content": "Engage the core (belly button to spine and tighten abdominals). Squeeze the glutes. Keeping pressure through the hands, bend the elbows to lower the chest, hips, and head toward the ground- together as one."
+        "content": "Engage the core, tightening your abdominals as well as keeping a straight back. Squeeze the glutes. Keeping pressure through the hands, bend the elbows to lower the chest, hips, and head toward the ground together as one."
     },
     "3": {
         "id": 3,
         "title": "Middle",
-        "content": "Get as close to the floor or wall as possible (nose, chest and belly button should be at the same level/height). Continue to squeeze the glutes and engage the core. Keep constant pressure through the hands into the floor."
+        "content": "Get as close to the floor (nose, chest and belly button should be at the same level/height). Continue to squeeze the glutes and engage the core. Keep constant pressure through the hands into the floor."
     },
     "4": {
         "id": 4,
         "title": "Finish",
-        "content": "Engage the pectorals and imagine you're pushing the ground away from you. Keep your energy focused in your core and NOT in your toes. Continue to push up, ending, and at available range of motion in the arms while engaging your triceps."
-    },
-    "5": {
-        "id": 5,
-        "title": "Muscles",
-        "content": "The following diagram shows all of the muscles groups mentioned in the previous slides. Click on them to review when they should be worked throughout the pushup!"
+        "content": "Engage the pectorals and imagine you're pushing the ground away from you. Keep your energy focused in your core and NOT in your toes. Continue to push up until your arms are completely straight, engaging your triceps."
     }
 }
 
@@ -41,11 +36,11 @@ lesson_pics = {
     },
     "elbows": {
         "normal": "This is an example of perfect elbow placement, right around a 45 degree angle from the shoulder. You should strive for this position every time.",
-        "wide": "Although the elbows arre not too flared out, you are still putting unwanted stress on joints compared to the normal elbow positioning",
-        "extrawide": "Flaring your elbows out in this way puts unwanted stress on the shoulder and elbow joint, and reduces chest involvement."
+        "wide": "Although the elbows are not too flared out, you are still putting unwanted stress on joints compared to the normal elbow positioning.",
+        "extrawide": "Flaring your elbows out in this way puts unwanted stress on the shoulder and elbow joint, and also reduces chest involvement."
     },
     "back": {
-        "arch": "This is a sign of a weak core, resulting in your glutes beings raised making it easier to hold the position. Remember that it is more important to have proper form rather than more reps, so you should stop the workout once your form goes awry.",
+        "arch": "This is a sign of a weak core, resulting in your glutes beings raised, making it easier to hold the position. Remember that it is more important to have proper form rather than more reps, so you should stop the workout once your form goes awry.",
         "normal": "This is an example of a perfectly neutrual back. You should strive for this position every time.",
         "dip": "This is a sign of a weak core, or not engaging the core in general. Another thing here to remeber is that your glutes need to be activated as well, which should help straigten your back."
     }

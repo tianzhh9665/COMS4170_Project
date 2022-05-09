@@ -8,7 +8,7 @@ function displayWelcome(){
     document.getElementById("welcomeTitle").appendChild(title_text)
 
     var content_text = document.createElement('p')
-    content_text.innerHTML = "The time one needs to see results from resistance training can make it frustrating to know if you are doing it correctly. Also with the possibilities of injuries make learning process daunting. Here we will teach you the basics of a push-up to troubleshoot the correct form and learn how to go about learning new exercises."
+    content_text.innerHTML = "The time one needs to see results from resistance training can make it frustrating to know if you are doing it correctly. Also there is always the risk of injuries, which make the learning process daunting. Here we will teach you the basics of a push-up to troubleshoot the correct form and learn how your body will react to improper form."
     document.getElementById("welcomeContent").appendChild(content_text)
 
     var image_text = document.createElement('img')
@@ -24,7 +24,7 @@ function displayWelcome(){
 
     var next_text_2 = document.createElement('p')
     next_text_2.style = "font-size: 20px; text-align: center;";
-    next_text_2.innerHTML = "And remember you can always use the navigation bar on the top to navigate";
+    next_text_2.innerHTML = "Remember, you can always use the navigation bar on the top to navigate";
     document.getElementById("welcomeNext").appendChild(next_text_2)
 
     let nextButton='<button type="button" id="nextBtn" class="btn btn-primary center">Next: Lessons</button>'
